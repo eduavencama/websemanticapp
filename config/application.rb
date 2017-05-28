@@ -14,8 +14,9 @@ module Websemanticapp
      # (values shown are the defaults)
     Tripod.configure do |config|
       #config.update_endpoint = 'http://127.0.0.1:3030/tripod/update'
-      #config.query_endpoint = 'http://192.168.0.19:8890/tripod/sparql'
-      config.query_endpoint = 'https://dbpedia.org/sparql'      
+     
+      config.query_endpoint = 'http://grupo1.semanticweb.uniandes.edu.co:8890/sparql'      
+      #config.query_endpoint = 'https://dbpedia.org/sparql'      
       config.timeout_seconds = 30
     end
   end
