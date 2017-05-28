@@ -1,0 +1,170 @@
+html, body{
+	margin: 0px;
+	font-family: 'Roboto', sans-serif;
+}
+a,a:visited{
+	color: inherit;
+}
+#logo{
+	font-size: 1.2em;	
+}
+#notice {
+  color: green;
+}
+.c-baja-texto{
+	color:#28b363;
+}
+.c-baja-fill{
+	background-color: #28b363;
+}
+.no-subrayado{
+	text-decoration: none;
+}
+.btn{
+	background-color: inherit;
+	border: none;
+	outline: none;
+	text-transform: uppercase;
+	cursor: pointer;
+	border-radius: 4px;
+	font-size: 1.1em;
+	padding: 5px 5px;
+}
+a:hover{
+	background-color: #2980B9;
+}
+.btn:hover{
+	background-color: #2980B9;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.be-big{
+	font-size: 2em;
+}
+.be-small{
+	font-size: 12px;
+}
+.underline{
+	text-decoration: underline;
+}
+.bottom-space{
+	margin-bottom: 2em;
+}
+.be-blue{
+	background-color: #2C3E50;
+}
+.blue{
+	color: #2C3E50 !important;
+}
+.be-red{
+	background-color: #E74C3C;	
+}
+.red{
+   color: #E74C3C;	 
+}
+.white{
+	color: #ECF0F1;
+}
+.grey{
+	color: #616161;
+}
+.large-padding{
+	padding: 4px 4px;
+}
+.no-list{
+	list-style-type: none;
+}
+.field, .actions{
+	margin-top: 1em;
+}
+.text-center{
+	text-align: center;
+}
+.text-left{
+	text-align: left;
+}
+.text-right{
+	text-align: right;
+}
+.text-justify{
+	text-align: justify;
+}
+.top-space{
+	margin-top: 1em;
+}
+.article-height{
+	height: 150px;
+}
+.relative{
+	position: relative;
+}
+.absolute{
+	position: absolute;
+}
+.background-cover{
+	background-position: center;
+	background-size: cover;
+}
+.form-control{
+	border: none;
+	border-bottom: 1px solid;
+	outline: none;
+	width: 100%;
+	display: block;
+	padding: 4px 0px;
+	font-size: 1em;
+}
+.Listbox-control{
+	
+	border-bottom: 1px solid;
+	outline: none;
+	width: 100%;
+	display: block;
+	padding: 4px 0px;
+	font-size: 1em;
+}
+.search-control{
+	
+	border-bottom: 1px solid;
+	outline: none;
+	
+	padding: 4px 0px;
+	font-size: 1.2em;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+	
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+	border-style: solid;
+    border-color: black;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tr:hover { 
+    background-color: #87bee8;
+}
+
+
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: asset-path("up_arrow.gif");
+  
+}
+
+.pretty th .desc {
+  background-image: asset-path("down_arrow.gif");
+
+}
