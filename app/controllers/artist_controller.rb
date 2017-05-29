@@ -9,13 +9,11 @@ def index
     #@artists = Artist.all.limit(1)
     #@ric = Artist.find('http://dbpedia.org/page/Fernando_Botero')
 
-    @artists = Artist.where("
-		  SELECT ?artist 
-		  WHERE {
-		    
-		      ?artist rdf:type <http://www.grupo1.semanticweb.uniandes.edu.co/curso/arte#Artist>
-		      		    
-		  } limit 2")
+        @artists = Artist.find_by_sparql('select ?uri
+     WHERE {
+       GRAPH <http://www.grupo1.semanticweb.uniandes.edu.co/curso/arte>
+       { ?uri a <http://www.grupo1.semanticweb.uniandes.edu.co/curso/arte#Artist> } } limit 1')
+
 
 end
 
