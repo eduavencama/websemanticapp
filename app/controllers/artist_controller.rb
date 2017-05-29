@@ -12,7 +12,7 @@ def index
         @artists = Artist.find_by_sparql('select ?uri
      WHERE {
        GRAPH <http://www.grupo1.semanticweb.uniandes.edu.co/curso/arte>
-       { ?uri a <http://www.grupo1.semanticweb.uniandes.edu.co/curso/arte#Artist> } } limit 1')
+       { ?uri a <http://www.grupo1.semanticweb.uniandes.edu.co/curso/arte#Artist> } } limit 10')
 
 
 end
