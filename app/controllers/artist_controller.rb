@@ -15,7 +15,7 @@ def index
     movement = '<http://www.grupo1.semanticweb.uniandes.edu.co/curso/arte#movement>'
     qmovement_name = ""
     qoptinalmn = "OPTIONAL"
-
+    offset=0
     limit=20
 
     if params[:name] && params[:name] != ''
@@ -29,6 +29,9 @@ def index
       qnacionality = ', ?nacionality FILTER(?nacionality="'+params[:nacionality]+'"^^<http://www.w3.org/2001/XMLSchema#string>)'
       qoptinalnac = ""
     end
+    if params[:offset] && params[:offset] != ''
+      offset = params[:offset]
+    end
     if params[:limit] && params[:limit] != ''
       limit = params[:limit]
     end
@@ -39,7 +42,7 @@ def index
                 ?uri  #{name} ?name #{qname} .
                 #{qoptinalmn} {?uri #{movement} ?movement } .
                 #{qoptinalnac} {?uri #{nacionality} ?nacionality #{qnacionality} } .
-                #{qoptinalmn} {?movement #{name} ?movement_name #{qmovement_name} } .} limit #{limit}"
+                #{qoptinalmn} {?movement #{name} ?movement_name #{qmovement_name} } .} offset #{offset} limit #{limit}"
 
 
     @query= sparql.query(@q)

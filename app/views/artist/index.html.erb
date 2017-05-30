@@ -5,6 +5,7 @@
     <%= text_field_tag :name, params[:search], placeholder: "Artist name" %>
     <%= text_field_tag :nacionality, params[:search], placeholder: "Nacionality" %>
     <%= text_field_tag :movement_name, params[:search], placeholder: "Artist Movement" %>
+    <%= number_field_tag :offset, params[:search], placeholder: "Offset of instances", min: 0 %>
     <%= number_field_tag :limit, params[:search], placeholder: "Limit of instances", min: 1 %>
     <%= submit_tag "Search" %>
     <% end %>

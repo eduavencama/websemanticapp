@@ -1,2 +1,56 @@
-<h1>Property#index</h1>
-<p>Find me in app/views/property/index.html.erb</p>
+<div class="container" style="margin: 0 auto;">
+    <h1>Propiedades</h1>
+
+    <div class="row">
+      <h2><a href='<%="http://www.grupo1.semanticweb.uniandes.edu.co/curso/arte"+"%23"+@propiedad %>' ><%= @propiedad %> </a></h2>
+    </div>
+
+
+
+    <%= form_tag("/property/index", :method => "post", id: "search-form") do |f| %>
+      <select name="property">
+        <%= @queryC.each_solution do |propiedad| %>
+        <% if @propiedad == propiedad.propiedad.to_s.split("#")[1] %>
+            <option value="<%= propiedad.propiedad %>" selected><%= propiedad.propiedad %></option>
+        <% else %>
+            <option value="<%= propiedad.propiedad %>"><%= propiedad.propiedad %></option>
+        <% end %>
+        <% end %>
+        </select>
+    <%= text_field_tag :name, params[:search], placeholder: "Name" %>
+    <%= number_field_tag :offset, params[:search], placeholder: "Offset of instances", min: 0 %>
+    <%= number_field_tag :limit, params[:search], placeholder: "Limit of instances", min: 1 %>
+    <%= submit_tag "Search" %>
+    <% end %>
+
+
+    <div class="row">
+
+    <b>Consultas realizadas:</b> <code><%= @q %></code> </br>
+    <code><%= @qpropiedad %></code> </br>
+    <code><%= @qobjetocount %></code> </br>
+   <h2>Instancias con la propiedad <%= @propiedad%> </h2>
+   <table class="pretty top-space" style="width:100%;">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Valor de la propiedad</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @query.each_solution do |solution| %>
+        <tr>
+            <td><a href='<%= solution.uri.to_s.gsub!('#', '%23') %>' ><%= solution.name %></a></td>
+            <td>
+                <% if solution.bound?(:obj) %>
+                    <%= solution.obj %>
+                <%end%>
+            </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+
+    </div>
+</div>

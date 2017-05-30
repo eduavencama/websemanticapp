@@ -1,2 +1,34 @@
-<h1>Instance#index</h1>
-<p>Find me in app/views/instance/index.html.erb</p>
+<div class="container" style="margin: 0 auto;">
+    <h1>Instancias</h1>
+
+
+    <%= form_tag("/instance/index", :method => "post", id: "search-form") do |f| %>
+    <%= text_field_tag :name, params[:search], placeholder: "Name" %>
+    <%= number_field_tag :offset, params[:search], placeholder: "Offset of instances", min: 0 %>
+    <%= number_field_tag :limit, params[:search], placeholder: "Limit of instances", min: 1 %>
+    <%= submit_tag "Search" %>
+    <% end %>
+
+
+    <div class="row">
+
+    <b>Consulta realizada:</b> <code><%= @q %></code> </br>
+   <table class="pretty top-space" style="width:100%;">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @query.each_solution do |solution| %>
+        <tr>
+            <td><a href='<%= solution.uri.to_s.gsub!('#', '%23') %>' ><%= solution.name %></a></td>
+
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+
+    </div>
+</div>
