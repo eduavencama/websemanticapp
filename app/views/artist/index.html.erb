@@ -2,9 +2,37 @@
     <h1>Artistas</h1>
     <div class="row">  
 
-        <% @artists.each do |person| %>
-        	<%= person.name %><br/>
-        <% end %>
+    <b>Consulta realizada:</b> <%= @q %>
+
+   <table class="pretty top-space" style="width:100%;">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Nacionalidad</th>
+          <th>Movimiento</th>          
+        </tr>
+      </thead> 
+      <tbody>
+       <% @query.each_solution do |solution| %>   
+        <tr>
+            <td><a href='<%= solution.uri.to_s.gsub!('#', '%23') %>' ><%= solution.name %></a></td>
+            <td>
+                <% if solution.bound?(:nacionality) %>
+                    <%= solution.nacionality %>                            
+                <%end%>
+            </td>
+            <td>
+                <% if solution.bound?(:movement) %>
+                    <a href='<%= solution.movement.to_s.gsub!('#', '%23') %>' ><%= solution.movement_name %></a>                            
+                <%end%>
+            </td>
+            
+            
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+   
             
     </div>
 </div>
