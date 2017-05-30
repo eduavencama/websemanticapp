@@ -1,38 +1,48 @@
 <div class="container" style="margin: 0 auto;">
     <h1>Artistas</h1>
-    <div class="row">  
 
-    <b>Consulta realizada:</b> <%= @q %>
+    <%= form_tag("/artist/index", :method => "get", id: "search-form") do %>
+    <%= text_field_tag :name, params[:search], placeholder: "Artist name" %>
+    <%= text_field_tag :nacionality, params[:search], placeholder: "Nacionality" %>
+    <%= text_field_tag :movement_name, params[:search], placeholder: "Artist Movement" %>
+    <%= number_field_tag :limit, params[:search], placeholder: "Limit of instances", min: 1 %>
+    <%= submit_tag "Search" %>
+    <% end %>
+
+
+    <div class="row">
+
+    <b>Consulta realizada:</b> <code><%= @q %></code>
 
    <table class="pretty top-space" style="width:100%;">
       <thead>
         <tr>
           <th>Nombre</th>
           <th>Nacionalidad</th>
-          <th>Movimiento</th>          
+          <th>Movimiento</th>
         </tr>
-      </thead> 
+      </thead>
       <tbody>
-       <% @query.each_solution do |solution| %>   
+       <% @query.each_solution do |solution| %>
         <tr>
             <td><a href='<%= solution.uri.to_s.gsub!('#', '%23') %>' ><%= solution.name %></a></td>
             <td>
                 <% if solution.bound?(:nacionality) %>
-                    <%= solution.nacionality %>                            
+                    <%= solution.nacionality %>
                 <%end%>
             </td>
             <td>
                 <% if solution.bound?(:movement) %>
-                    <a href='<%= solution.movement.to_s.gsub!('#', '%23') %>' ><%= solution.movement_name %></a>                            
+                    <a href='<%= solution.movement.to_s.gsub!('#', '%23') %>' ><%= solution.movement_name %></a>
                 <%end%>
             </td>
-            
-            
+
+
         </tr>
       <% end %>
       </tbody>
     </table>
-   
-            
+
+
     </div>
 </div>
