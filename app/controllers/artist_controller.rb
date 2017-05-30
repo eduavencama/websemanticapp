@@ -9,7 +9,7 @@ def index
     #@artists = Artist.all.limit(1)
     #@ric = Artist.find('http://dbpedia.org/page/Fernando_Botero')
 
-       # @artists = Artist.find_by_sparql('select ?uri     WHERE {       GRAPH <http://www.grupo1.semanticweb.uniandes.edu.co/curso/arte>       { ?uri a <http://www.grupo1.semanticweb.uniandes.edu.co/curso/arte#Artist> } } limit 1')
+    # @artists = Artist.find_by_sparql('select ?uri     WHERE {       GRAPH <http://www.grupo1.semanticweb.uniandes.edu.co/curso/arte>       { ?uri a <http://www.grupo1.semanticweb.uniandes.edu.co/curso/arte#Artist> } } limit 1')
 
     sparql = SPARQL::Client.new("http://www.grupo1.semanticweb.uniandes.edu.co:8890/sparql")
     
@@ -28,6 +28,7 @@ def index
     
     @query= sparql.query(@q)
     
+
 
 
 end
