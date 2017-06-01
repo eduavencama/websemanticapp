@@ -21,7 +21,7 @@ class ClassController < ApplicationController
         @clase = params[:class].split('#')[1]
       end
       if params[:name] && params[:name] != ''
-        qname = ', ?name FILTER(?name="'+params[:name]+'"^^<http://www.w3.org/2001/XMLSchema#string>)'
+        qname = '. FILTER regex(?name,"'+params[:name]+'"^^<http://www.w3.org/2001/XMLSchema#string>, "i")'
       end
       if params[:offset] && params[:offset] != ''
         offset = params[:offset]

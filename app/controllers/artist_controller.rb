@@ -19,14 +19,14 @@ def index
     limit=20
 
     if params[:name] && params[:name] != ''
-      qname = ', ?name FILTER(?name="'+params[:name]+'"^^<http://www.w3.org/2001/XMLSchema#string>)'
+      qname = '. FILTER regex(?name,"'+params[:name]+'"^^<http://www.w3.org/2001/XMLSchema#string>, "i")'
     end
     if params[:movement_name] && params[:movement_name] != ''
-      qmovement_name = ', ?movement_name FILTER(?movement_name="'+params[:movement_name]+'"^^<http://www.w3.org/2001/XMLSchema#string>)'
+      qmovement_name = '. FILTER regex(?movement_name,"'+params[:movement_name]+'"^^<http://www.w3.org/2001/XMLSchema#string>, "i")'
       qoptinalmn = ""
     end
     if params[:nacionality] && params[:nacionality] != ''
-      qnacionality = ', ?nacionality FILTER(?nacionality="'+params[:nacionality]+'"^^<http://www.w3.org/2001/XMLSchema#string>)'
+      qnacionality = '. FILTER regex(?nacionality,"'+params[:nacionality]+'"^^<http://www.w3.org/2001/XMLSchema#string>, "i")'
       qoptinalnac = ""
     end
     if params[:offset] && params[:offset] != ''
